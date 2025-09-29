@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monterde Apartments Dashboard</title>
+    <title>Monterde Apartments | Dashboard</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="sidebar">
         <div class="logo-section">
@@ -16,28 +18,57 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle">GO TO ▼</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Add Tenant</a></li>
-                        <li><a href="#">Edit Tenant</a></li>
-                        <li><a href="#">Dismiss Tenant</a></li>
-                        <li><a href="#">Search Tenant</a></li>
-                        <li><a href="#">Rooms</a></li>
-                        <li><a href="#">Payments</a></li>
-                        <li><a href="#">Report</a></li>
-                        <li><a href="#">Log Out</a></li>
+                        <li><a href="#" onclick="openTab('notifs')">Home</a></li>
+                        <li><a href="#" onclick="openTab('tenants')">Tenants</a></li>
+                        <li><a href="#" onclick="openTab('units')">Units</a></li>
+                        <li><a href="#" onclick="openTab('rent')">Rent</a></li>
+                        <li><a href="index.html">Log Out</a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
     </div>
     <div class="main-content">
-        <header>
-            <span class="date">10:03 PM PST 9/1/2025</span>
-        </header>
-        <section class="notice-section">
-            <h1>NOTICE</h1>
-            <div class="notice-list">
-            </div>
-        </section>
+        <div id="notifs" class="content-tab">
+            <header>
+                <span class="date">10:03 PM PST 9/1/2025</span>
+            </header>
+            <section class="notice-section">
+                <h1>NOTICE</h1>
+                <div class="notice-list">
+                </div>
+            </section>
+        </div>
+        <div id="tenants" class="content-tab">
+            <header>
+                <span class="date">10:03 PM PST 9/1/2025</span>
+            </header>
+            <section class="notice-section">
+                <h1>TENANTS PAGE</h1>
+                <div class="notice-list">
+                </div>
+            </section>
+        </div>
+        <div id="units" class="content-tab">
+            <header>
+                <span class="date">10:03 PM PST 9/1/2025</span>
+            </header>
+            <section class="notice-section">
+                <h1>UNITS PAGE</h1>
+                <div class="notice-list">
+                </div>
+            </section>
+        </div>
+        <div id="rent" class="content-tab">
+            <header>
+                <span class="date">10:03 PM PST 9/1/2025</span>
+            </header>
+            <section class="notice-section">
+                <h1>RENT PAGE</h1>
+                <div class="notice-list">
+                </div>
+            </section>
+        </div>
     </div>
 
     <div id="noticeModal" class="modal">
@@ -57,22 +88,30 @@
             },
         ];
 
+        function openTab(tabId) {
+            const tabs = document.querySelectorAll('.content-tab');
+            tabs.forEach(tab => tab.style.display = "none");
+            document.getElementById(tabId).style.display = "block";
+        }
+
         function showModal(message) {
             document.getElementById('modalMessage').textContent = message;
             document.getElementById('noticeModal').style.display = "block";
         }
 
-        document.querySelector('.close').onclick = function() {
+        document.querySelector('.close').onclick = function () {
             document.getElementById('noticeModal').style.display = "none";
         }
 
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target == document.getElementById('noticeModal')) {
                 document.getElementById('noticeModal').style.display = "none";
             }
         }
 
-        window.onload = function() {
+        window.onload = function () {
+            openTab('notifs');
+
             const noticeList = document.querySelector('.notice-list');
             dueTenants.forEach(tenant => {
                 const noticeItem = document.createElement('div');
@@ -86,12 +125,12 @@
             const dropdownToggle = document.querySelector('.dropdown-toggle');
             const dropdownMenu = document.querySelector('.dropdown-menu');
 
-            dropdownToggle.onclick = function(e) {
+            dropdownToggle.onclick = function (e) {
                 e.preventDefault();
                 dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
             };
 
-            document.addEventListener('click', function(e) {
+            document.addEventListener('click', function (e) {
                 if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
                     dropdownMenu.style.display = 'none';
                 }
@@ -99,4 +138,5 @@
         }
     </script>
 </body>
+
 </html>

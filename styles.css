@@ -13,6 +13,12 @@ body {
 }
 
 :root {
+    --plum-noir: #2D0A43;
+    --lavendar-smoke: #6D3A8E;
+    --buttercream: #FFFADA;
+    --butterlight: #FFCD7B;
+    --honey: #FFA719;
+    
     --deep-purple: #5A2D82;
     --soft-lavender: #9D6DC2;
     --bright-purple: #7A3DB8;
@@ -667,6 +673,10 @@ nav ul li a:hover {
     padding: 40px;
     background-color: var(--dark-gray);
     min-height: 100vh;
+}
+
+.content-tab {
+    display: none;
 }
 
 header {
