@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apartment Management</title>
+  <link rel="stylesheet" href="App.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="navbar-brand">Apartment Management</a>
+    <div class="navbar-menu">
+      <a href="#">Dashboard</a>
+      <a href="#">Reports</a>
+      <a href="#">Settings</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="card">
+      <h1 class="title">Apartments</h1>
+      <p class="subtitle">Manage all apartment properties with ease.</p>
+
+      <button class="add-btn" onclick="openModal()">Add Apartment</button>
+
+      <table class="apartment-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Units</th>
+            <th>Tenants</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Apartment B</strong></td>
+            <td>Cookies Area, Matina Guro</td>
+            <td>10 Units</td>
+            <td>8</td>
+            <td><span class="status">Active</span></td>
+            <td>
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Cookies Apartment</strong></td>
+            <td>Taga Ma-a, Davao</td>
+            <td>12 Units</td>
+            <td>10</td>
+            <td><span class="status">Active</span></td>
+            <td>
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Cookie Apartment 2</strong></td>
+            <td>Central Davao</td>
+            <td>15 Units</td>
+            <td>13</td>
+            <td><span class="status">Active</span></td>
+            <td>
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Test Apartment</strong></td>
+            <td>UIC Area</td>
+            <td>8 Units</td>
+            <td>6</td>
+            <td><span class="status">Active</span></td>
+            <td>
+              <button class="edit-btn">Edit</button>
+              <button class="delete-btn">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="modal" id="addModal">
+    <div class="modal-content">
+      <h2>Add New Apartment</h2>
+      <input type="text" placeholder="Apartment Name" required>
+      <input type="text" placeholder="Address" required>
+      <input type="number" placeholder="Number of Units" required>
+      <input type="number" placeholder="Number of Tenants" required>
+      <div>
+        <button class="submit-btn" onclick="closeModal()">Submit</button>
+        <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('addModal').classList.add('show');
+    }
+
+    function closeModal() {
+      document.getElementById('addModal').classList.remove('show');
+    }
+  </script>
+</body>
+</html>

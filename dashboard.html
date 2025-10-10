@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartment Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 200px;
+            background: linear-gradient(180deg, #2d1b47 0%, #1a0f2e 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .sidebar-header {
+            padding: 24px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-header h1 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffd700;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            flex: 1;
+            padding: 20px 0;
+        }
+
+        .nav-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            border-left: 3px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-left-color: #ffd700;
+        }
+
+        .nav-item.active {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border-left-color: #ffd700;
+            font-weight: 500;
+        }
+
+        .main-content {
+            flex: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px 40px;
+            overflow-y: auto;
+        }
+
+        .timestamp {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+        .notice-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .notice-title {
+            color: #c084fc;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .notice-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #c084fc;
+            padding: 16px;
+            border-radius: 4px;
+            color: white;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>APARTMENT MANAGEMENT</h1>
+        </div>
+        <nav class="nav-menu">
+            <div class="nav-item active" onclick="navigate('apartments')">Apartments</div>
+            <div class="nav-item" onclick="navigate('units')">Units</div>
+            <div class="nav-item" onclick="navigate('tenants')">Tenants</div>
+            <div class="nav-item" onclick="navigate('payments')">Payments</div>
+            <div class="nav-item" onclick="navigate('bills')">Bills</div>
+            <div class="nav-item" onclick="navigate('other-charges')">Other Charges</div>
+            <div class="nav-item" onclick="navigate('logout')" style="margin-top: auto;">Logout</div>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="timestamp">10:03 PM PST 9/1/2025</div>
+        
+        <div class="notice-container">
+            <h2 class="notice-title">NOTICE</h2>
+            <div class="notice-item">
+                Cookie P. Angit has a payment due on September 1, 2025 for ₱5000.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function navigate(page) {
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (page === 'logout') {
+                if (confirm('Are you sure you want to logout?')) {
+                    console.log('Logging out...');
+                }
+            } else {
+                console.log('Navigating to:', page);
+            }
+        }
+    </script>
+</body>
+</html>
